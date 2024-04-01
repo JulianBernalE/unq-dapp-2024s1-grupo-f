@@ -42,26 +42,18 @@ class UserTest{
 
     @Test
     fun `test correct user creation`() {
-        // Arrange
-        val name = "Juan"
-        val lastName = "Perez"
-        val email = "juan.perez@gmail.com"
-        val address = "avenida siempre viva 123"
-        val password = "VerySrongPassword123!"
-        val cvuMercadoPago = "0123456789012345678901"
-        val cryptoAddress = "12345678"
 
-        val user = User(name, lastName, email, address, password, cvuMercadoPago, cryptoAddress)
+        val user = User("Juan", "Perez", "juan.perez@gmail.com", "avenida siempre viva 123", "VerySrongPassword123!", "0123456789012345678901", "12345678")
 
         // Act & Assert
         assertAll("User attributes",
-            { assertEquals(name, user.name) },
-            { assertEquals(lastName, user.lastName) },
-            { assertEquals(email, user.email) },
-            { assertEquals(address, user.address) },
-            { assertEquals(password, user.password) },
-            { assertEquals(cvuMercadoPago, user.cvuMercadoPago) },
-            { assertEquals(cryptoAddress, user.cryptoAddress) }
+            { assertEquals("Juan", user.name) },
+            { assertEquals("Perez", user.lastName) },
+            { assertEquals("juan.perez@gmail.com", user.email) },
+            { assertEquals("avenida siempre viva 123", user.address) },
+            { assertEquals("VerySrongPassword123!", user.password) },
+            { assertEquals("0123456789012345678901", user.cvuMercadoPago) },
+            { assertEquals("12345678", user.cryptoAddress) }
         )
     }
 }
