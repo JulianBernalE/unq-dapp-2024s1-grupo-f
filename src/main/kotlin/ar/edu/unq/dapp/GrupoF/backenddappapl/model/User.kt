@@ -1,17 +1,30 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
-import ar.edu.unq.dapp.GrupoF.backenddappapl.repository.UserRepository
+import jakarta.persistence.*
 import java.util.regex.*
 
+@Entity
+@Table(name = "user_table")
+open class User()  {
 
-class User() : UserRepository{
-
-    var name: String? = null
-    var lastName: String? = null
-    var email: String? = null
-    var address: String? = null
-    var password: String? = null
-    var cvuMercadoPago: String? = null
-    var cryptoAddress: String? = null
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    open val id: Long? = null
+    @Column
+    open var name: String? = null
+    @Column
+    open var lastName: String? = null
+    @Column
+    open var email: String? = null
+    @Column
+    open var address: String? = null
+    @Column
+    open var password: String? = null
+    @Column
+    open var cvuMercadoPago: String? = null
+    @Column
+    open var cryptoAddress: String? = null
+    @Column
+    open var point : Int = 0
 
     constructor(nameU: String, lastNameU: String, emailU: String,  addressU: String , passwordU: String, cvuMP: String, cryptoAddU : String): this(){
         this.name = nameU
@@ -22,7 +35,7 @@ class User() : UserRepository{
         this.cvuMercadoPago = cvuMP
         this.cryptoAddress = cryptoAddU
 
-         require(name!!.length in 3..30) { "El nombre debe tener entre 3 y 30 caracteres." }
+         require(name?.length in 3..30) { "El nombre debe tener entre 3 y 30 caracteres." }
          require(lastName?.length!! in 3..30) { "El apellido debe tener entre 3 y 30 caracteres." }
          require(isValidEmail(email)) { "El formato del email no es válido." }
          require(address?.length in 10..30) { "La dirección debe tener entre 10 y 30 caracteres." }
@@ -44,7 +57,11 @@ class User() : UserRepository{
         val pattern = Pattern.compile(passwordRegex)
         return pattern.matcher(password).matches()
     }
-    override fun registrar(){
+    //override fun registrar(){
 
-    }
+//    }
+
+    //override fun <S : User?> save(entity: S): S {
+   // return S
+   // }
 }

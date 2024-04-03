@@ -7,6 +7,42 @@ import org.junit.jupiter.api.Assertions.*
 class UserTest{
 
     @Test
+    fun userWithName(){
+        val user: UserBuilder = UserBuilder().builder()
+        user.withName("Juan")
+        Assertions.assertEquals(user.name, "Juan")
+
+    }
+    @Test
+    fun userWithLastName(){
+        val user: UserBuilder = UserBuilder().builder()
+        user.withLastName("Perez")
+        Assertions.assertEquals(user.lastName, "Perez")
+    }
+
+    @Test
+    fun userWithEmailAndPassword(){
+
+        val user: UserBuilder = UserBuilder().builder()
+        user.withEmail("juan.perez@gmail.com")
+        user.withPassword("VerySrongPassword123!")
+
+        Assertions.assertEquals(user.email, "juan.perez@gmail.com")
+        Assertions.assertEquals(user.password, "VerySrongPassword123!")
+
+    }
+
+    @Test
+    fun userWithDirection(){
+
+        val user: UserBuilder = UserBuilder().builder()
+        user.withDirection("avenida siempre viva 123")
+        Assertions.assertEquals(user.address, "avenida siempre viva 123")
+
+    }
+
+
+    @Test
     fun `test incorrect email`() {
         // Arrange
         val name = "Juan"
