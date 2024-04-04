@@ -25,7 +25,7 @@ class UserBuilder : User() {
         return this
     }
 
-    fun withDirection(addressU: String): User{
+    fun withAddress(addressU: String): User{
 
         this.address = addressU
         return this
