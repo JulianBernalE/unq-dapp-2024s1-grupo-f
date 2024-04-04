@@ -36,7 +36,7 @@ class UserTest{
     fun userWithDirection(){
 
         val user: UserBuilder = UserBuilder().builder()
-        user.withDirection("avenida siempre viva 123")
+        user.withAddress("avenida siempre viva 123")
         Assertions.assertEquals(user.address, "avenida siempre viva 123")
 
     }
