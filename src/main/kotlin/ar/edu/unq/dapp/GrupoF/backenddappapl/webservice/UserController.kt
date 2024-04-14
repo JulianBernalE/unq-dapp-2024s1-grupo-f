@@ -17,7 +17,7 @@ class UserController {
     @Autowired
     lateinit var service : UserService
 
-    @GetMapping("/greeting")
+/*    @GetMapping("/greeting")
     fun greeting(@RequestParam(name = "name", required = false, defaultValue = "World") name: String?, model: Model): String? {
         model.addAttribute("name", name)
         return "greeting"
@@ -26,7 +26,7 @@ class UserController {
     @GetMapping("/")
     fun holaMundo(): String{
         return "Hola Mundo"
-    }
+    } */
 
     @PostMapping("/register")
     fun saveUser(@RequestBody userRequest : UserRequest) : ResponseEntity<UserDTO> {
@@ -36,4 +36,9 @@ class UserController {
         return ResponseEntity(userDTO, HttpStatus.CREATED)
     }
 
+    @GetMapping("/users")
+    fun getUsers() : List<User>{
+        return service.allUsers()
+    }
+    
 }

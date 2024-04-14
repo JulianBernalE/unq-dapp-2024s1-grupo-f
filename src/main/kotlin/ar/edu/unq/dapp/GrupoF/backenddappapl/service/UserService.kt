@@ -15,4 +15,7 @@ class UserService {
         repo.save(user)
         return user
     }
+    fun allUsers(): List<User>{
+        return repo.findAll()
+    }
 }
