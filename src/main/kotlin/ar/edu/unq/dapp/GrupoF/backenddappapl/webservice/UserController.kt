@@ -30,7 +30,7 @@ class UserController {
 
     @PostMapping("/register")
     fun saveUser(@RequestBody userRequest : UserRequest) : ResponseEntity<UserDTO> {
-        val user = User(userRequest.name,userRequest.lastName,userRequest.email,userRequest.password,userRequest.address,userRequest.cvuMercadoPago,userRequest.cryptoAddress)
+        val user = User(userRequest.name,userRequest.lastName,userRequest.email,userRequest.address,userRequest.password,userRequest.cvuMercadoPago,userRequest.cryptoAddress)
         service.createUser(user)
         val userDTO = UserDTO(user.name!!,user.point)
         return ResponseEntity(userDTO, HttpStatus.CREATED)

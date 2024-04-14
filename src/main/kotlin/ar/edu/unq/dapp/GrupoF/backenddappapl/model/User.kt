@@ -36,7 +36,7 @@ open class User()  {
         this.cryptoAddress = cryptoAddU
 
          require(name?.length in 3..30) { "El nombre debe tener entre 3 y 30 caracteres." }
-         require(lastName?.length!! in 3..30) { "El apellido debe tener entre 3 y 30 caracteres." }
+         require(lastName?.length in 3..30) { "El apellido debe tener entre 3 y 30 caracteres." }
          require(isValidEmail(email)) { "El formato del email no es válido." }
          require(address?.length in 10..30) { "La dirección debe tener entre 10 y 30 caracteres." }
          require(isValidPassword(password)) { "La contraseña debe tener al menos 1 minúscula, 1 mayúscula, 1 carácter especial y tener una longitud mínima de 6 caracteres." }

@@ -29,7 +29,6 @@ class UserTest{
 
         Assertions.assertEquals(user.email, "juan.perez@gmail.com")
         Assertions.assertEquals(user.password, "VerySrongPassword123!")
-
     }
 
     @Test
