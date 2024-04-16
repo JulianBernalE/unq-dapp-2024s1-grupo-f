@@ -40,6 +40,14 @@ class UserTest{
 
     }
 
+    @Test
+    fun userWithCvuMercadoPago(){
+
+        val user: UserBuilder = UserBuilder().builder()
+        user.withCvuMP("0123456789012345678901")
+        Assertions.assertEquals(user.cvuMercadoPago, "0123456789012345678901")
+
+    }
 
     @Test
     fun `test incorrect email`() {

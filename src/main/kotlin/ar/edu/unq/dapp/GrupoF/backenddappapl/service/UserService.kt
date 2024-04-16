@@ -11,11 +11,13 @@ class UserService {
     @Autowired
     lateinit var repo : UserRepository
 
-    fun createUser(user : User) : User {
+    fun createUser(user : User): User {
         repo.save(user)
         return user
     }
+
     fun allUsers(): List<User>{
         return repo.findAll()
     }
+
 }

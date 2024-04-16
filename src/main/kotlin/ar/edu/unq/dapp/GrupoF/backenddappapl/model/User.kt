@@ -13,7 +13,7 @@ open class User()  {
     open var name: String? = null
     @Column
     open var lastName: String? = null
-    @Column
+    @Column (unique = true)
     open var email: String? = null
     @Column
     open var address: String? = null
@@ -57,11 +57,5 @@ open class User()  {
         val pattern = Pattern.compile(passwordRegex)
         return pattern.matcher(password).matches()
     }
-    //override fun registrar(){
 
-//    }
-
-    //override fun <S : User?> save(entity: S): S {
-   // return S
-   // }
 }
