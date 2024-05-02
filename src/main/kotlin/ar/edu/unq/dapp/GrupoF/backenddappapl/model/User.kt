@@ -58,4 +58,8 @@ open class User()  {
         return pattern.matcher(password).matches()
     }
 
+    fun expressBuyIntent(){}
+
+    fun expressSellIntent(){}
+
 }
