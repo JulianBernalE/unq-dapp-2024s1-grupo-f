@@ -1,12 +1,10 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
 
-import Intent
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.CryptoSymbol
-import ar.edu.unq.dapp.GrupoF.backenddappapl.repository.IntentRepository
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.IntentType
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
-import org.mockito.Mockito.*
 
 class UserTest{
 

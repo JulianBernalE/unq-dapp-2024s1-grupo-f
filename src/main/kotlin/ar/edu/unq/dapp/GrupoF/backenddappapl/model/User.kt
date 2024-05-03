@@ -1,6 +1,6 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
 import Intent
-import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.TransactionType
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.IntentType
 import jakarta.persistence.*
 import java.time.LocalDateTime
 import java.util.regex.*
@@ -63,7 +63,7 @@ open class User()  {
         return pattern.matcher(password).matches()
     }
 
-    fun expressIntent(crypto: CryptoAsset, nominalQuantity: Double, nominalPrice: Double, transactionType: IntentType ): Intent{
+    fun expressIntent(crypto: CryptoAsset, nominalQuantity: Double, nominalPrice: Double, transactionType: IntentType): Intent{
         val intent = Intent (
                 user = this,
                 type = transactionType,

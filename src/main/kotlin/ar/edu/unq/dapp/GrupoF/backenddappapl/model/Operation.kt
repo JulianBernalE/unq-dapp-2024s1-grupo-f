@@ -1,7 +1,6 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
 
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.TransactionStatus
-import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.TransactionType
 import java.time.LocalDateTime
 
 
@@ -11,7 +10,6 @@ class Operation {
     val cryptoAsset :CryptoAsset? = null;
 
 
-    val transactionType : TransactionType? = null;
     val transactionStatus : TransactionStatus? = null;
 
     val cryptoAmmount :Double? = null;

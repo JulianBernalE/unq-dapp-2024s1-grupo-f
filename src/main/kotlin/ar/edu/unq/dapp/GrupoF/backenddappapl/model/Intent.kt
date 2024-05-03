@@ -1,7 +1,6 @@
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.CryptoAsset
-import ar.edu.unq.dapp.GrupoF.backenddappapl.model.IntentType
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.IntentType
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.User
-import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.TransactionStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
