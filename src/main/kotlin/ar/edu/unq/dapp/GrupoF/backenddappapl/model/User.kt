@@ -1,5 +1,8 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
+import Intent
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.IntentType
 import jakarta.persistence.*
+import java.time.LocalDateTime
 import java.util.regex.*
 
 @Entity
@@ -25,6 +28,8 @@ open class User()  {
     open var cryptoAddress: String? = null
     @Column
     open var point : Int = 0
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL])
+    val intents: MutableList<Intent> = mutableListOf()
 
     constructor(nameU: String, lastNameU: String, emailU: String,  addressU: String , passwordU: String, cvuMP: String, cryptoAddU : String): this(){
         this.name = nameU
@@ -57,5 +62,20 @@ open class User()  {
         val pattern = Pattern.compile(passwordRegex)
         return pattern.matcher(password).matches()
     }
+
+    fun expressIntent(crypto: CryptoAsset, nominalQuantity: Double, nominalPrice: Double, transactionType: IntentType): Intent{
+        val intent = Intent (
+                user = this,
+                type = transactionType,
+                asset = crypto,
+                price = nominalPrice,
+                quantity = nominalQuantity,
+                date = LocalDateTime.now(),
+        )
+        this.intents.add(intent)
+        return intent
+    }
+
+
 
 }

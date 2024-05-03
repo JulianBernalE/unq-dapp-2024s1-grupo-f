@@ -1,4 +1,4 @@
-package ar.edu.unq.dapp.GrupoF.backenddappapl.model
+package ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums
 
 enum class CryptoSymbol{
     ALICEUSDT,
