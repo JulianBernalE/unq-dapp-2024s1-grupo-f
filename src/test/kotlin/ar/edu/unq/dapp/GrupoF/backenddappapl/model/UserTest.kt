@@ -1,8 +1,12 @@
 package ar.edu.unq.dapp.GrupoF.backenddappapl.model
 
+import Intent
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.CryptoSymbol
+import ar.edu.unq.dapp.GrupoF.backenddappapl.repository.IntentRepository
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
+import org.mockito.Mockito.*
 
 class UserTest{
 
@@ -98,5 +102,28 @@ class UserTest{
             { assertEquals("0123456789012345678901", user.cvuMercadoPago) },
             { assertEquals("12345678", user.cryptoAddress) }
         )
+    }
+
+    @Test
+    fun `test express buy intention` () {
+        // Arrange
+        val user = User() // Crear un usuario
+        val crypto = CryptoAsset(name = CryptoSymbol.BTCUSDT, currentValue = 45000.0)
+        val nominalQuantity = 1.5 // Cantidad nominal
+        val nominalPrice = 45000.0 // Precio nominal
+        val transactionType = IntentType.BUY // Tipo de transacción
+
+        // Act
+        val intent = user.expressIntent(crypto, nominalQuantity, nominalPrice, transactionType)
+
+        // Assert
+        assertNotNull(intent) // Asegurar que la intención no sea nula
+        assertEquals(user, intent.user) // Asegurar que la intención esté asociada con el usuario correcto
+        assertEquals(crypto, intent.asset) // Asegurar que el activo criptográfico sea el correcto
+        assertEquals(nominalQuantity, intent.quantity) // Asegurar que la cantidad nominal sea la correcta
+        assertEquals(nominalPrice, intent.price) // Asegurar que el precio nominal sea el correcto
+        assertEquals(transactionType, intent.type) // Asegurar que el tipo de transacción sea el correcto
+        assertNotNull(intent.date) // Asegurar que la fecha y hora de la intención no sea nula
+
     }
 }

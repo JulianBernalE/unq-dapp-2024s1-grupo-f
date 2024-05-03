@@ -1,16 +1,13 @@
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.CryptoAsset
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.IntentType
 import ar.edu.unq.dapp.GrupoF.backenddappapl.model.User
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.stereotype.Repository
+import ar.edu.unq.dapp.GrupoF.backenddappapl.model.enums.TransactionStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
-import java.util.regex.*
+
 
 @Entity
 data class Intent(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
 
     @ManyToOne
     val user: User,
@@ -21,7 +18,14 @@ data class Intent(
     val asset: CryptoAsset,
 
     val price: Double,
+
     val quantity: Double,
+
+
 
     val date: LocalDateTime,
 )
+{
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null
+}
